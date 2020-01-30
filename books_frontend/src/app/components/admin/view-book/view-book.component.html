@@ -1,0 +1,45 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div style="margin-top: 10px;">
+    <button mat-flat-button class="mat-primary" id="back" routerLink="/admin/booklist" style="margin-right: 20px">Back</button>
+
+    <button mat-flat-button class="mat-primary" id="edit" (click)="openEdit()">Edit</button>
+  </div>
+  <br>
+  <mat-grid-list cols="9" rowHeight="100px">
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <img src="{{book.bookImage}}" class="responsive-img" />
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="6">
+      <h3>{{book.title}}</h3>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="3">
+      <mat-list>
+          <p><strong>Author: </strong>{{book.author}}</p>
+          <p><strong>Publisher: </strong>{{book.publisher}}</p>
+          <p><strong>Publication Date: </strong>{{book.publicationDate}}</p>
+          <p><strong>Language: </strong>{{book.language}}</p>
+          <p><strong>Category: </strong>{{book.category}}</p>
+          <p><strong>Pages: </strong>{{book.numberOfPages}}</p>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="3">
+      <mat-list>
+
+          <p><strong>Format: </strong>{{book.format}}</p>
+          <p><strong>ISBN: </strong>{{book.isbn}}</p>
+          <p><strong>Shipping Weight: </strong>{{book.shippingWeight}}</p>
+          <p><strong>List Price: </strong>{{book.listPrice}}</p>
+          <p><strong>Our Price: </strong>{{book.ourPrice}}</p>
+          <p><strong>Number in Stock: </strong>{{book.inStockNumber}}</p>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="6">
+      <p><strong>Description: </strong> <br>{{book.description}}</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

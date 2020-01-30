@@ -1,0 +1,9 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+
+.card{
+  border: 1px solid #bbbbbb;
+  border-radius: 5%;
+  margin: 10px;
+  padding: 10px 20px;
+
+}

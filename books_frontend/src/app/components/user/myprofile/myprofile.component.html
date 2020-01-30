@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row" style="text-align: center">
+    <div class="col" >
+
+    </div>
+    <div class="col">
+      <img src="../../../assets/image/logo.png" class="img-fluid" style="width:400px;margin-left: 200px; z-index:1;" />
+    </div>
+    <h1 style="position: absolute;  margin-top: 50px; margin-left: 525px; background-color: #333333; color: white; padding: 3px; font-size: 35px; border-radius: 5%">MY PROFILE</h1>
+    <img src="../../../assets/image/wood.png" class="img-fluid" style="position: absolute; margin-top: 90px; z-index: -2; width: 1150px" />
+  </div>
+
+  <hr style="position: absolute;width:60%; height:3px; background-color: #333; z-index:-1; margin-top: -160px;" />
+  <br>
+  <hr style="border:1.5px solid #888" />
+
+  <div class="card" >
+    <h1 *ngIf="loggedUser.firstName || loggedUser.lastName">{{loggedUser.firstName}} {{loggedUser.lastName}}</h1>
+    <div class="row">
+      <div class="col">
+          <h4>USERNAME</h4>
+      </div>
+      <div class="col-8"><h4>{{loggedUser.username}}</h4></div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4>EMAIL</h4>
+      </div>
+      <div class="col-8"><h4>{{loggedUser.email}}</h4></div>
+    </div>
+
+    <div class="row" *ngIf="loggedUser.phone">
+      <div class="col">
+        <h4>PHONE</h4>
+      </div>
+      <div class="col-8"><h4>{{loggedUser.phone}}</h4></div>
+    </div>
+  </div>
+  <hr style="border:1.5px solid #888" />
+  <button type="button" class="btn" routerLink="/user/update">Update Profile</button>
+
+</div>
+
+
+
+

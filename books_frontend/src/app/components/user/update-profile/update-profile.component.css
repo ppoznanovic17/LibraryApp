@@ -1,0 +1,13 @@
+button{
+  border: 1px solid white;
+  outline: none;
+
+  background: #DEB887;
+  color: white;
+  font-size: 20px;
+  border-radius: 20px;
+  width: 40%;
+  text-align: center;
+  vertical-align: center;
+  margin-bottom: 30px;
+}

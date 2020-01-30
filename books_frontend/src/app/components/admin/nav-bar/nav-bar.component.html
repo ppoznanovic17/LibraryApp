@@ -1,0 +1,14 @@
+
+<mat-toolbar class="mat-primary nav">
+
+  <h1>Admin Portal</h1>
+  <span class="example-spacer"></span>
+  <a mat-button routerLink="">Home</a>
+  <a *ngIf="LogIn"  mat-button href="/admin/booklist">View Book List</a>
+  <a *ngIf="LogIn" mat-button routerLink="/admin/newbook">Add a Book</a>
+  <a *ngIf="LogIn" mat-button routerLink="/login" (click)="logout()">Logout</a>
+
+
+</mat-toolbar>
+
+

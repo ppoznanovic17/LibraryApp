@@ -1,0 +1,28 @@
+<div class="page-top" style="width: 100%; height: 20px; background-color: #DEB887"></div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navheight" >
+  <div class="collapse navbar-collapse container" id="navbarTogglerDemo01">
+    <a class="navbar-brand" routerLink="/">Petar's Bookstore</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link current" routerLink="/">HOME <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link current">BOOK <span class="sr-only">(current)</span></a>
+      </li>
+
+      <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSearchByTitle()">
+        <input [(ngModel)]="keyboard" class="form-control mr-sm-2" type="text" placeholder="Search" name="searchByTitle" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+    </ul>
+    <a *ngIf="!loggedIn" class="myacc" routerLink="/login">Login</a>
+    <a *ngIf="!loggedIn" class="myacc" routerLink="/register">Register</a>
+    <a *ngIf="loggedIn && isAdmin" class="myacc" routerLink="/admin/welcome">ADMIN PORTAL</a>
+    <a *ngIf="loggedIn && !isAdmin" class="myacc" >SHOPPING CART</a>
+    <a *ngIf="loggedIn && !isAdmin"class="myacc" routerLink="/user/profile">MY PROFILE</a>
+    <a *ngIf="loggedIn" (click)="logout()"  class="myacc" href="">LOGOUT</a>
+  </div>
+
+</nav>

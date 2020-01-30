@@ -1,0 +1,26 @@
+<div class="body">
+
+  <div class="loginbox">
+    <p class="abs" (click)="router.navigate([''])" style="margin-left: 15px; margin-top: 15px">&larr; Home</p>
+    <div class="cont">
+    <h1>Login Here</h1>
+    <span *ngIf="errorMessage">{{errorMessage}}</span>
+    <div class="form">
+      <p>Username</p>
+      <input [(ngModel)]="username" type="text"  placeholder="Enter Username">
+      <p>Password</p>
+      <input [(ngModel)]="password" type="text" name="username" placeholder="Enter Password">
+
+
+      <button (click)="handleJWTAuthLogin()">Login</button>
+      <br>
+      <br>
+      <a routerLink="/register">Forget Password?</a>
+      <br>
+      <br>
+      <p>Dont have account? </p>
+      <a routerLink="/forgetpass">Register</a>
+    </div>
+    </div>
+  </div>
+</div>

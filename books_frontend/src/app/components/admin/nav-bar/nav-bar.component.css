@@ -1,0 +1,11 @@
+.example-spacer{
+  flex: 1 1 auto;
+}
+
+#current{
+  outline-color: white;
+}
+
+.nav{
+  height: 80px;
+}

@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row" style="text-align: center">
+    <div class="col" >
+
+    </div>
+    <div class="col">
+      <img src="../../../assets/image/logo.png" class="img-fluid" style="width:400px;margin-left: 200px; z-index:1;" />
+    </div>
+      <h1 style="position: absolute;  margin-top: 50px; margin-left: 525px; background-color: #333333; color: white; padding: 3px; font-size: 35px; border-radius: 5%">Home</h1>
+    <img src="../../../assets/image/wood.png" class="img-fluid" style="position: absolute; margin-top: 90px; z-index: -2; width: 1150px" />
+  </div>
+
+  <hr style="position: absolute;width:60%; height:3px; background-color: #333; z-index:-1; margin-top: -160px;" />
+  <br>
+  <hr style="border:1.5px solid #888" />
+
+  <div class="row row-cols-3">
+    <div class="col ">
+
+          <a class="pointer card " >
+            <img src="../../../assets/image/bestseller.png" class="img-fluid" />
+          </a>
+
+    </div>
+    <div class="col ">
+
+          <a class="pointer card" >
+            <img src="../../../assets/image/hours.png" class="img-fluid" />
+          </a>
+
+    </div>
+    <div class="col ">
+
+          <a class="pointer card" >
+            <img src="../../../assets/image/faq.png" class="img-fluid" />
+          </a>
+
+    </div>
+  </div>
+
+  <div style="text-align: center">
+    <div ><span style="background-color: #333333; color: white; padding: 3px; font-size: 25px; border-radius: 5%">Featured Books</span></div>
+    <hr style="margin-top: -15px;border:1.5px solid #888" />
+  </div>
+
+  <img class="img-fluid" src="../../../assets/image/shelf.png" style="margin-top: -5px; z-index:-1;" />
+
+  <div class="row row-cols-6 " *ngIf="booksList" style="margin:auto; margin-top:-190px; margin-bottom:70px; width:90%;">
+    <div class="col" *ngFor="let book of  booksList">
+      <img class="img-fluid" style="width: 80%;" src="{{book.bookImage}}" />
+    </div>
+    <!--<div class="col">
+      <img class="img-fluid" style="width: 80%;" src="../../../assets/image/book1.png" />
+    </div>
+    <div class="col">
+      <img class="img-fluid" style="width: 80%;" src="../../../assets/image/book1.png" />
+    </div>
+    <div class="col">
+      <img class="img-fluid" style="width: 80%;" src="../../../assets/image/book1.png" />
+    </div>
+    <div class="col">
+      <img class="img-fluid" style="width: 80%;" src="../../../assets/image/book1.png" />
+    </div>
+    <div class="col">
+      <img class="img-fluid" style="width: 80%;" src="../../../assets/image/book1.png" />
+    </div>-->
+  </div>
+</div>

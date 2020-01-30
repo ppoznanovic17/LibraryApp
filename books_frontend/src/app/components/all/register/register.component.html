@@ -1,0 +1,24 @@
+<div class="body">
+  <div class="loginbox">
+    <p class="abs" (click)="router.navigate([''])" style="margin-left: 15px; margin-top: 15px">&larr; Home</p>
+    <div class="cont">
+    <h1>Register Here</h1>
+    <span *ngIf="regMsg">{{regMsg}}</span>
+    <div class="form">
+      <p>Username</p>
+      <input [(ngModel)]="username" type="text" name="username" placeholder="Enter Username">
+      <p>Password</p>
+      <input [(ngModel)]="password" type="text" name="username" placeholder="Enter Password">
+      <p>Email</p>
+      <input [(ngModel)]="email" type="text" name="email" placeholder="Enter Email">
+
+
+
+      <button (click)="handleRegister()">Register</button>
+      <br>
+      <br>
+      <p>Have an account?</p><a  routerLink="/login">Login</a>
+    </div>
+    </div>
+  </div>
+</div>
