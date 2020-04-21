@@ -34,6 +34,7 @@ export class AddNewBookComponent implements OnInit {
 
     if(this.newBook.title.length > 1 && this.newBook.author.length > 1 && this.newBook.publisher.length > 1 &&
                   this.newBook.category!= null && this.newBook.format!=null && this.newBook.isbn.length > 1 && this.newBook.description.length > 1
+                  && this.newBook.inStockNumber !=null
                   ) {
 
       this.bookService.sendBook(this.newBook).subscribe(

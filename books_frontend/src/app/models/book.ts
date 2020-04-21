@@ -17,6 +17,6 @@ export class Book {
   public description: String
   public inStockNumber: number
   public bookImage: String
-
+  public numberOfSold:number
 
 }

@@ -29,6 +29,11 @@ import { NavbarComponent } from './components/all/navbar/navbar.component';
 import { ForgetpassComponent } from './components/all/forgetpass/forgetpass.component';
 import { MyprofileComponent } from './components/user/myprofile/myprofile.component';
 import { UpdateProfileComponent } from './components/user/update-profile/update-profile.component';
+import { BookComponent } from './components/all/book/book.component';
+import { BooklistAllComponent } from './components/all/booklist-all/booklist-all.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './components/all/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +51,11 @@ import { UpdateProfileComponent } from './components/user/update-profile/update-
     NavbarComponent,
     ForgetpassComponent,
     MyprofileComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    BookComponent,
+    BooklistAllComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -61,7 +70,8 @@ import { UpdateProfileComponent } from './components/user/update-profile/update-
     MatSelectModule,
     MatSlideToggleModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    FontAwesomeModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBasicAuthService , multi : true}

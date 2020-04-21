@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Book} from "../../../models/book";
 import {BookListService} from "../../../services/book/book-list.service";
 import {log} from "util";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,11 @@ export class HomeComponent implements OnInit {
 
 
   private book: Book
-
+  private selectedBook: Book
   private booksList: Book[]
 
-  constructor(private bookService: BookListService) { }
+  constructor(private bookService: BookListService,
+              private router: Router) { }
 
 
 
@@ -25,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   refresh() {
     console.log('pre')
-    this.bookService.getBookList().subscribe(
+    this.bookService.getBookListBest6().subscribe(
 
       res => {
         console.log('read')
@@ -39,6 +41,12 @@ export class HomeComponent implements OnInit {
 
 
 
+  }
+
+  onSelect(book:Book) {
+    this.selectedBook = book
+
+    this.router.navigate(['book' , book.id])
   }
 
 

@@ -1,6 +1,6 @@
-package com.peca.books.domain.dto;
+package com.peca.books.model.dto;
 
-import com.peca.books.domain.User;
+import com.peca.books.model.User;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.peca.books.domain.dto.jwt;
+package com.peca.books.model.dto.jwt;
 
 import java.io.Serializable;
 

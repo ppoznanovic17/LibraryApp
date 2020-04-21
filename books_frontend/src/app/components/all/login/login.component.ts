@@ -38,8 +38,11 @@ export class LoginComponent implements OnInit {
             return
           }*/
 
-
-          this.router.navigate([''])
+          let prevUrl = localStorage.getItem('previousUrl')
+          if(prevUrl.includes('register'))
+            this.router.navigate(['/'])
+          else
+            this.router.navigate([prevUrl])
         },
         error => {
 

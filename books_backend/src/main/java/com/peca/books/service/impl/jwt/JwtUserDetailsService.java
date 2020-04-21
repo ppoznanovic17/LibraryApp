@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import com.peca.books.domain.User;
-import com.peca.books.domain.dto.UserReqDto;
-import com.peca.books.domain.dto.UserResDto;
+import com.peca.books.model.User;
+import com.peca.books.model.dto.UserReqDto;
 import com.peca.books.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

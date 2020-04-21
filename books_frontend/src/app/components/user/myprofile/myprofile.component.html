@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container" style="min-height: 80vh">
   <div class="row" style="text-align: center">
     <div class="col" >
 
     </div>
     <div class="col">
-      <img src="../../../assets/image/logo.png" class="img-fluid" style="width:400px;margin-left: 200px; z-index:1;" />
+      <img src="../../../assets/image/logo1.png" class="img-fluid" style="width:400px;margin-left: 200px; z-index:1;" />
     </div>
     <h1 style="position: absolute;  margin-top: 50px; margin-left: 525px; background-color: #333333; color: white; padding: 3px; font-size: 35px; border-radius: 5%">MY PROFILE</h1>
     <img src="../../../assets/image/wood.png" class="img-fluid" style="position: absolute; margin-top: 90px; z-index: -2; width: 1150px" />
@@ -37,12 +37,20 @@
       </div>
       <div class="col-8"><h4>{{loggedUser.phone}}</h4></div>
     </div>
+
+    <div class="row" *ngIf="loggedUser.address">
+      <div class="col">
+        <h4>ADDRESS</h4>
+      </div>
+      <div class="col-8"><h4>{{loggedUser.address}}</h4></div>
+    </div>
+
   </div>
   <hr style="border:1.5px solid #888" />
   <button type="button" class="btn" routerLink="/user/update">Update Profile</button>
 
 </div>
 
-
+<app-footer></app-footer>
 
 

@@ -6,4 +6,5 @@ export class User {
   public lastName:String
   public phone:String
   public password:String
+  public address:String
 }

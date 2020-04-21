@@ -40,6 +40,11 @@
       </div>
 
       <div class="form-group">
+        <label >Adress:</label>
+        <input [(ngModel)]="loggedUser.address" type="text" class="form-control" >
+      </div>
+
+      <div class="form-group">
         <label >Current Password:</label>
         <input [(ngModel)]="currPassInfo" type="password" class="form-control" >
         <p *ngIf="incorrectPasswordInfo" style="height: 15px; font-size: 15px; color: red">{{msgErrInfo}}</p>
@@ -51,7 +56,6 @@
 
     <div class="col">
       <h4 style="color: #DEB887">Update password</h4>
-      <p *ngIf="updatePassFalse" style="height: 15px; font-size: 15px; color: red">{{updatePassMsg}}</p>
       <p *ngIf="!updatePassFalse" style="height: 15px; font-size: 13px; color: green"></p>
       <div class="form-group">
         <label >New Password : </label>
@@ -66,7 +70,7 @@
         <input [(ngModel)]="newPassword" type="password" class="form-control"  placeholder="">
       </div>
       <p *ngIf="updatePassFalse" style="height: 15px; font-size: 15px; color: red">{{updatePassMsg}}</p>
-      <p *ngIf="!updatePassFalse" style="height: 15px; font-size: 13px; color: green"></p>
+      <p *ngIf="!updatePassFalse" style="height: 25px; font-size: 13px; color: green">{{updatePassMsg}}</p>
 
     </div>
 
@@ -89,3 +93,5 @@
 
 
 
+
+<app-footer></app-footer>

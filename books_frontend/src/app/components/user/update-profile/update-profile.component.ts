@@ -47,6 +47,7 @@ export class UpdateProfileComponent implements OnInit {
   ngOnInit() {
 
     this.getLoggedUser(sessionStorage.getItem('user'))
+
   }
 
   updatePass() {
@@ -54,30 +55,39 @@ export class UpdateProfileComponent implements OnInit {
       this.updatePassFalse = true
       this.updatePassTrue = false
       this.updatePassMsg = "New password don't match with repeat password. "
+      this.pass2 = ''
+      return
     }
     if(this.pass1 == '' || this.pass2 == ''){
       this.updatePassFalse = true
       this.updatePassTrue = false
       this.updatePassMsg = "Field couldn't be empty. "
+      return
     }
 
 
-    /*this.userService.updatePass(this.user, this.newPassword).subscribe(
+    this.userService.updatePass(this.loggedUser, this.pass1).subscribe(
       res => {
         console.log(res)
-        //this.updateSuccess = true
+        this.updatePassTrue = true
+        this.updatePassFalse = false
+        this.pass1 = ''
+        this.pass2 = ''
+        this.newPassword = ''
+        this.updatePassMsg = 'Successful!'
       },
 
       error => {
-        console.log(error)
+        this.updatePassFalse = true
+        this.updatePassTrue = false
+        this.updatePassMsg = "error"
 
       }
 
-    )*/
+    )
   }
 
   updateInfo() {
-    console.log(this.currPassInfo)
     this.userService.updateInfo(this.loggedUser,this.currPassInfo).subscribe(
       res => {
         this.incorrectPasswordInfo = false

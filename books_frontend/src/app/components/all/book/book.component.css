@@ -1,0 +1,8 @@
+.container{
+  margin: auto 300px;
+}
+
+.btn:hover{
+  color: black;
+  border: 3px solid #512a1a ;
+}

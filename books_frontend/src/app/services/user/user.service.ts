@@ -14,12 +14,7 @@ export class UserService {
 
     let userInfo = {
       "id" : user.id,
-      "firstName" : user.firstName,
-      "lastName" : user.lastName,
-      "username" : user.username,
       "currentPassword" : user.password,
-      "phone" : user.phone,
-      "email" : user.email,
       "newPassword" : newPassword
     }
 
@@ -34,6 +29,7 @@ export class UserService {
   updateInfo (user:User, password:String) {
     let userInfo = {
       "id" : user.id,
+      "address" : user.address,
       "firstName" : user.firstName,
       "lastName" : user.lastName,
       "username" : user.username,

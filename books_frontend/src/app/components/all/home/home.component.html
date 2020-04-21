@@ -5,7 +5,7 @@
 
     </div>
     <div class="col">
-      <img src="../../../assets/image/logo.png" class="img-fluid" style="width:400px;margin-left: 200px; z-index:1;" />
+      <img src="../../../assets/image/logo1.png" class="img-fluid" style="width:400px;margin-left: 200px; z-index:1;" />
     </div>
       <h1 style="position: absolute;  margin-top: 50px; margin-left: 525px; background-color: #333333; color: white; padding: 3px; font-size: 35px; border-radius: 5%">Home</h1>
     <img src="../../../assets/image/wood.png" class="img-fluid" style="position: absolute; margin-top: 90px; z-index: -2; width: 1150px" />
@@ -40,7 +40,7 @@
   </div>
 
   <div style="text-align: center">
-    <div ><span style="background-color: #333333; color: white; padding: 3px; font-size: 25px; border-radius: 5%">Featured Books</span></div>
+    <div ><span style="background-color: #333333; color: white; padding: 3px; font-size: 25px; border-radius: 5%">Most Popular Books</span></div>
     <hr style="margin-top: -15px;border:1.5px solid #888" />
   </div>
 
@@ -48,7 +48,7 @@
 
   <div class="row row-cols-6 " *ngIf="booksList" style="margin:auto; margin-top:-190px; margin-bottom:70px; width:90%;">
     <div class="col" *ngFor="let book of  booksList">
-      <img class="img-fluid" style="width: 80%;" src="{{book.bookImage}}" />
+      <a style="cursor: pointer" (click)="onSelect(book)"><img class="img-fluid" style="width: 80%;" src="{{book.bookImage}}" /></a>
     </div>
     <!--<div class="col">
       <img class="img-fluid" style="width: 80%;" src="../../../assets/image/book1.png" />
@@ -67,3 +67,8 @@
     </div>-->
   </div>
 </div>
+<br>
+<br>
+<br>
+
+<app-footer></app-footer>

@@ -13,8 +13,9 @@
         <th>Category</th>
         <th>List Price</th>
         <th>Our Price</th>
-        <th>Active?</th>
-        <th>Operation</th>
+        <th>Picture</th>
+        <th>NumInStock</th>
+        <th>Sold</th>
       </tr>
       </thead>
       <tbody>
@@ -29,7 +30,8 @@
           <td>{{book.listPrice}}</td>
           <td>{{book.ourPrice}}</td>
           <td><img src="{{book.bookImage}}" alt="book image" style="height: 120px"></td>
-          <td>{{book.active}}</td>
+          <td>{{book.inStockNumber}}</td>
+          <td>{{book.numberOfSold}}</td>
           <td style="width: 200px ; text-align: center">
             <input hidden="hidden" name="id" />
             <div [attr.id]="book.id + 'div'" style="display:none">

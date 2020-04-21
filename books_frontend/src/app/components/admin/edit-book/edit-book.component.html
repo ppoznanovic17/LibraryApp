@@ -1,7 +1,7 @@
 
 <app-nav-bar></app-nav-bar>
 <div class="form">
-  <h3 style="text-align: center">New Book Information <span style="font-size:small">* is a required field</span></h3>
+  <h3 style="text-align: center">Edit Book Information <span style="font-size:small">* is a required field</span></h3>
 
 
 
@@ -36,18 +36,23 @@
 
     </li>
     <li>
+      <label> Number Of Pages </label>
       <input type="text" [(ngModel)]="book.numberOfPages" name="numberOfPages" class="field-divided" placeholder="Number of Pages"/>
+      <label> ISBN* </label>
       <input type="text" [(ngModel)]="book.isbn" name="isbn" class="field-divided" placeholder="ISBN *"/>
 
     </li>
 
     <li>
+      <label> List Price </label>
       <input type="text" [(ngModel)]="book.listPrice" name="listPrice" class="field-divided" placeholder="List Price"/>
+      <label> Price </label>
       <input type="text" [(ngModel)]="book.ourPrice" name="ourPrice" class="field-divided" placeholder="Our Price"/>
 
     </li>
 
     <li>
+      <label> Weight </label>
       <input type="text" [(ngModel)]="book.shippingWeight" name="shippingWeight" class="field-divided" placeholder="Shipping Weight"/>
       <select [(ngModel)]="book.language" name="language" class=" field-divided" >
         <option value="" disabled selected>Language *</option>
@@ -58,6 +63,7 @@
     </li>
 
     <li>
+      <label> Number in Stock </label>
       <input type="text" [(ngModel)]="book.inStockNumber" name="inStockNumber" class="field-divided" placeholder="Numbers in Stock"/>
       <mat-slide-toggle class="mat-primary" style="padding-left: 20px" [(ngModel)]="book.active" name="active">Active</mat-slide-toggle>
 

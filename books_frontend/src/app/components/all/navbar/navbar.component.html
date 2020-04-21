@@ -5,23 +5,24 @@
     <a class="navbar-brand" routerLink="/">Petar's Bookstore</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link current" routerLink="/">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="" routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }">HOME</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link current">BOOK <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/booklist/all" routerLinkActive="current">BOOKS</a>
       </li>
 
-      <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSearchByTitle()">
+      <form class="form-inline my-2 my-lg-0" *ngIf="showSearch()" (ngSubmit)="onSearchByTitle()">
         <input [(ngModel)]="keyboard" class="form-control mr-sm-2" type="text" placeholder="Search" name="searchByTitle" aria-label="Search">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
       </form>
 
     </ul>
+
+    <a *ngIf="loggedIn && isAdmin" class="myacc" routerLink="/admin/welcome" >ADMIN PORTAL</a>
+    <a *ngIf="!isAdmin" class="myacc" routerLinkActive="current">SHOPPING CART <sup *ngIf="!cartEmpty" style="border: 1px solid red; border-right:50px">{{cart.length}}</sup></a>
     <a *ngIf="!loggedIn" class="myacc" routerLink="/login">Login</a>
     <a *ngIf="!loggedIn" class="myacc" routerLink="/register">Register</a>
-    <a *ngIf="loggedIn && isAdmin" class="myacc" routerLink="/admin/welcome">ADMIN PORTAL</a>
-    <a *ngIf="loggedIn && !isAdmin" class="myacc" >SHOPPING CART</a>
-    <a *ngIf="loggedIn && !isAdmin"class="myacc" routerLink="/user/profile">MY PROFILE</a>
+    <a *ngIf="loggedIn && !isAdmin"class="myacc" routerLink="/user/profile"routerLinkActive="current">MY PROFILE</a>
     <a *ngIf="loggedIn" (click)="logout()"  class="myacc" href="">LOGOUT</a>
   </div>
 

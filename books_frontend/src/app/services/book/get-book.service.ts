@@ -19,7 +19,7 @@ export class GetBookService {
       'auth': sessionStorage.getItem(TOKEN)});
     let options = { headers: headers };
 
-    return this.http.get<Book>(`${SERVER_API}book/${id}`,{headers:headers})
+    return this.http.get<Book>(`${SERVER_API}book/${id}`,/*{headers:headers}*/)
 
   }
 }

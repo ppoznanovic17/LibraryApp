@@ -15,6 +15,8 @@ import {HomeComponent} from "./components/all/home/home.component";
 import {ForgetpassComponent} from "./components/all/forgetpass/forgetpass.component";
 import {MyprofileComponent} from "./components/user/myprofile/myprofile.component";
 import {UpdateProfileComponent} from "./components/user/update-profile/update-profile.component";
+import {BookComponent} from "./components/all/book/book.component";
+import {BooklistAllComponent} from "./components/all/booklist-all/booklist-all.component";
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'forgetpass', component: ForgetpassComponent},
+  { path: 'book/:id', component: BookComponent},
+  { path: 'booklist/:name', component: BooklistAllComponent},
   { path: 'admin/newbook', component: AddNewBookComponent, canActivate: [RouteGuardAdminService]},
   { path: 'admin/welcome', component: WelcomeComponent, canActivate: [RouteGuardAdminService]},
   { path: 'admin/booklist', component: BookListComponent, canActivate: [RouteGuardAdminService]},

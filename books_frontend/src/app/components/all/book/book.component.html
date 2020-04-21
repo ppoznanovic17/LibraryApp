@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+  <br>
+  <mat-grid-list cols="9" rowHeight="100px">
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <img src="{{book.bookImage}}" class="responsive-img" />
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="6">
+      <h3>{{book.title}}</h3>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="3">
+      <mat-list>
+        <p><strong>Author: </strong>{{book.author}}</p>
+        <p><strong>Publisher: </strong>{{book.publisher}}</p>
+        <p><strong>Publication Date: </strong>{{book.publicationDate}}</p>
+        <p><strong>ISBN: </strong>{{book.isbn}}</p>
+
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="3">
+      <mat-list>
+        <p><strong>Language: </strong>{{book.language}}</p>
+        <p><strong>Category: </strong>{{book.category}}</p>
+        <p><strong>Pages: </strong>{{book.numberOfPages}}</p>
+        <p><strong>Format: </strong>{{book.format}}</p>
+
+      </mat-list>
+
+
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2" [rowspan]="1" style="margin-left: 100px; border: 1px solid red">
+      <p style="color: red; font-size: 20px; font-style: oblique;">PRICE: {{book.ourPrice}} din.</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" [rowspan]="1.5" style="margin-left: 120px">
+
+      <div>
+        <p *ngIf="book.inStockNumber == 0" style="color: red ">Unavailable</p>
+        <p *ngIf="book.inStockNumber != 0" style="color: green ">Available</p>
+        <label for="tentacles" style="margin-right: 10px">Quantity: </label>
+
+        <input value="1" type="number" id="tentacles" name="tentacles"
+               min="1" max="{{book.inStockNumber}}">
+        <br>
+        <a class="btn" style="background-color: #835C3B; color: white;" (click)="addToChart(book)">ADD TO CART</a>
+      </div>
+
+
+
+
+    </mat-grid-tile>
+
+   <!-- <mat-grid-tile [colspan]="9">
+      <br>
+      <p><strong>Description: </strong> <br>{{book.description}}</p>
+    </mat-grid-tile>-->
+  </mat-grid-list>
+  <div><p><strong>Description: </strong> <br>{{book.description}}</p></div>
+</div>

@@ -1,11 +1,10 @@
 package com.peca.books.ctrl;
 
 import com.peca.books.config.jwt.JwtTokenUtil;
-import com.peca.books.domain.User;
-import com.peca.books.domain.dto.UserReqDto;
-import com.peca.books.domain.dto.jwt.JwtRequest;
-import com.peca.books.domain.dto.jwt.JwtResponse;
-import com.peca.books.service.UserService;
+import com.peca.books.model.User;
+import com.peca.books.model.dto.UserReqDto;
+import com.peca.books.model.dto.jwt.JwtRequest;
+import com.peca.books.model.dto.jwt.JwtResponse;
 import com.peca.books.service.impl.jwt.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -19,5 +19,13 @@ export class BookListService {
     return this.http.get<Book[]>(`${SERVER_API}book/all`,/*{headers:headers}*/)
   }
 
-  get
+
+  getBookListBest6() {
+    /*let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'auth': sessionStorage.getItem(TOKEN)});
+    let options = { headers: headers };*/
+
+    return this.http.get<Book[]>(`${SERVER_API}book/best`,/*{headers:headers}*/)
+  }
 }

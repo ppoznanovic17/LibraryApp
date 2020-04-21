@@ -1,20 +1,11 @@
 package com.peca.books.ctrl;
 
-import com.peca.books.domain.Book;
+import com.peca.books.model.Book;
 import com.peca.books.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.Iterator;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -42,9 +33,27 @@ public class BookCtrl {
         return b;
 
     }
+
+    @GetMapping(path = "/best")
+    public List<Book> getFeatured () {
+        return bookService.findTopSold();
+    }
+
+    @GetMapping(path = "/price/{min}&{max}&{cat}&{type}&{lang}")
+    public List<Book> getByPrice(@PathVariable int min, @PathVariable int max, @PathVariable String cat,
+                                 @PathVariable String type, @PathVariable String lang) {
+        return bookService.findBetweenPrice(min, max, cat, type, lang);
+    }
+
+    @GetMapping(path = "/sort/{off}&{limit}&{sort}&{order}")
+    public List<Book> getAllSorted(@PathVariable int off, @PathVariable int limit,
+                                   @PathVariable String sort, @PathVariable int order){
+
+        return bookService.pagination(off,limit,sort,order);
+    }
+
     @PutMapping( path = "/update")
     public Book updateBook(@RequestBody Book book) {
-
         return bookService.save(book);
 
     }

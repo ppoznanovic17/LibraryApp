@@ -1,8 +1,7 @@
-package com.peca.books.domain;
+package com.peca.books.model;
 
 import lombok.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,6 +28,9 @@ public class Book implements Serializable {
     private double shippingWeight;
     private double listPrice;
     private double ourPrice;
+    private double newPrice;
+
+    private int numberOfSold;
     private boolean active=true;
 
     @Column(columnDefinition="text")

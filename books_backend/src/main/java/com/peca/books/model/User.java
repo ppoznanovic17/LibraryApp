@@ -1,6 +1,6 @@
-package com.peca.books.domain;
+package com.peca.books.model;
 
-import com.peca.books.domain.dto.UserReqDto;
+import com.peca.books.model.dto.UserReqDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +25,7 @@ public class User {
 
     private String email;
     private String phone;
+    private String address;
 
     public User(UserReqDto req) {
         username = req.getUsername();

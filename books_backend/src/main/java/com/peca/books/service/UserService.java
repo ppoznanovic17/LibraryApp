@@ -1,8 +1,8 @@
 package com.peca.books.service;
 
-import com.peca.books.domain.User;
-import com.peca.books.domain.dto.UserReqDto;
-import com.peca.books.domain.dto.UserResDto;
+import com.peca.books.model.User;
+import com.peca.books.model.dto.UserReqDto;
+import com.peca.books.model.dto.UserResDto;
 
 import java.util.Optional;
 

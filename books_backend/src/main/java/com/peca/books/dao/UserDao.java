@@ -1,6 +1,6 @@
 package com.peca.books.dao;
 
-import com.peca.books.domain.User;
+import com.peca.books.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
