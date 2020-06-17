@@ -1,4 +1,4 @@
-package com.peca.books.model.dto;
+package com.peca.books.model.dto.user;
 
 import com.peca.books.model.User;
 import lombok.Data;
@@ -11,6 +11,7 @@ import lombok.Setter;
 @Data
 public class UserResDto {
 
+    private long id;
     private String username;
     private String email;
 
@@ -20,7 +21,7 @@ public class UserResDto {
     private String phone;
 
     public UserResDto (User user) {
-
+        id = user.getId();
         username = user.getUsername();
         email = user.getEmail();
         firstName = user.getFirstName();

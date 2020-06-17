@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../services/auth/auth.service";
 import {NavigationStart, Router} from "@angular/router";
 import {Book} from "../../../models/book";
-import {cart} from "../../../app.constants";
+import {cart, CART_PREFIX} from "../../../app.constants";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-navbar',
@@ -16,6 +17,7 @@ export class NavbarComponent implements OnInit {
 
   cart:Book[]
   cartEmpty:boolean
+  cartCnt = 0
 
   loggedIn: boolean
   isAdmin: boolean
@@ -34,31 +36,21 @@ export class NavbarComponent implements OnInit {
         }
       });
 
-
-    this.cart = cart
-    this.cartItems()
-  }
-
-
-
-  onSearchByTitle() {
+    setInterval(() => {this.cartItems()}, 100)
 
   }
+
 
   cartItems () {
-    if(this.cart!= null && this.cart.length >= 1){
-      this.cartEmpty = false
-      return
+    this.cartCnt = 0
+    for (let i = 0; i < sessionStorage.length; i++){
+      if(sessionStorage.key(i).includes(CART_PREFIX)){
+        this.cartCnt++
+      }
+
     }
-    this.cartEmpty = true
   }
 
-  showSearch () {
-    if(this.router.url.includes('booklist')){
-      return false
-    }
-    return true
-  }
 
 
 

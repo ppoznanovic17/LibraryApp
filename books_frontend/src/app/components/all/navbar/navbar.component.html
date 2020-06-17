@@ -11,15 +11,12 @@
         <a class="nav-link" routerLink="/booklist/all" routerLinkActive="current">BOOKS</a>
       </li>
 
-      <form class="form-inline my-2 my-lg-0" *ngIf="showSearch()" (ngSubmit)="onSearchByTitle()">
-        <input [(ngModel)]="keyboard" class="form-control mr-sm-2" type="text" placeholder="Search" name="searchByTitle" aria-label="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-      </form>
+
 
     </ul>
 
     <a *ngIf="loggedIn && isAdmin" class="myacc" routerLink="/admin/welcome" >ADMIN PORTAL</a>
-    <a *ngIf="!isAdmin" class="myacc" routerLinkActive="current">SHOPPING CART <sup *ngIf="!cartEmpty" style="border: 1px solid red; border-right:50px">{{cart.length}}</sup></a>
+    <a *ngIf="!isAdmin && loggedIn" class="myacc" routerLink="/cart" routinkActive="current">SHOPPING CART <sup *ngIf="cartCnt>0" style="border: 1px solid #835C3B;background-color: #835C3B; border-right:50px; padding: 1px 3px; border-radius: 50px">{{cartCnt}}</sup></a>
     <a *ngIf="!loggedIn" class="myacc" routerLink="/login">Login</a>
     <a *ngIf="!loggedIn" class="myacc" routerLink="/register">Register</a>
     <a *ngIf="loggedIn && !isAdmin"class="myacc" routerLink="/user/profile"routerLinkActive="current">MY PROFILE</a>

@@ -5,9 +5,10 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Data @AllArgsConstructor @NoArgsConstructor @Getter @Setter
-@Entity
+@Entity(name = "book")
 public class Book implements Serializable {
 
 
@@ -29,6 +30,7 @@ public class Book implements Serializable {
     private double listPrice;
     private double ourPrice;
     private double newPrice;
+    private double discount;
 
     private int numberOfSold;
     private boolean active=true;
@@ -39,6 +41,12 @@ public class Book implements Serializable {
 
 
     private String bookImage;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable( name = "rating")
+    private List<Rating> ratings;
+
+
 
 
 }

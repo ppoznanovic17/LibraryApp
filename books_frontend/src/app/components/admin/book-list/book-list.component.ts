@@ -3,6 +3,7 @@ import {Book} from "../../../models/book";
 import {BookListService} from "../../../services/book/book-list.service";
 import {Router} from "@angular/router";
 import {RemoveBookService} from "../../../services/book/remove-book.service";
+import {BookService} from "../../../services/book/book.service";
 
 @Component({
   selector: 'app-book-list',
@@ -21,11 +22,14 @@ export class BookListComponent implements OnInit {
 
   private toDelete = false
 
+  private discount = 0
+
   constructor(
     private bookListService: BookListService,
     private router: Router,
-
+    private bookService: BookService,
     private removeBookService: RemoveBookService
+
   ) { }
 
   onSelect(book:Book) {
@@ -76,6 +80,23 @@ export class BookListComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+
+  setDiscount(id: number, discount: number) {
+
+    let obj ={
+      'bookId' : id,
+      'percent': discount
+    }
+
+    this.bookService.setDiscount(obj).subscribe(
+      res => {
+        this.refresh()
+      }, error => {
+        console.log(error)
+      }
+    )
+
   }
 
 

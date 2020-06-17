@@ -2,7 +2,7 @@ package com.peca.books.ctrl;
 
 import com.peca.books.config.jwt.JwtTokenUtil;
 import com.peca.books.model.User;
-import com.peca.books.model.dto.UserReqDto;
+import com.peca.books.model.dto.user.UserReqDto;
 import com.peca.books.model.dto.jwt.JwtRequest;
 import com.peca.books.model.dto.jwt.JwtResponse;
 import com.peca.books.service.impl.jwt.JwtUserDetailsService;

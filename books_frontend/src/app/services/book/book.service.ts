@@ -32,4 +32,14 @@ export class BookService {
     return this.http.put(`${SERVER_API}book/update`, book, {headers:headers})
 
   }
+
+  setDiscount(discount) {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'auth': sessionStorage.getItem(TOKEN)});
+
+
+    return this.http.put(`${SERVER_API}book/discount`, discount, {headers:headers})
+
+  }
 }

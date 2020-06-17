@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import com.peca.books.model.User;
-import com.peca.books.model.dto.UserReqDto;
+import com.peca.books.model.dto.user.UserReqDto;
 import com.peca.books.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

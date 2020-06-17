@@ -18,3 +18,7 @@
   text-decoration: underline;
 }
 
+.invisible{
+  visibility: hidden;
+}
+

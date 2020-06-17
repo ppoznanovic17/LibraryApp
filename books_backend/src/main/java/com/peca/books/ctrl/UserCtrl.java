@@ -6,6 +6,7 @@ import com.peca.books.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,9 @@ public class UserCtrl {
 
     @Autowired
     private UserService service;
+
+    @Autowired
+    private PasswordEncoder encoder;
 
     @GetMapping(path = "/{username}")
     public User LoggedUser (@PathVariable  String username){
@@ -114,8 +118,8 @@ public class UserCtrl {
 
         PasswordEncoder passwordEncoder = securityConfig.passwordEncoder();
         String dbPassword = currentUser.getPassword();
-        System.out.println(currentPassword);
-        System.out.println(dbPassword);
+        /*System.out.println(currentPassword);
+        System.out.println(dbPassword);*/
 
         if(currentUser == null) {
             System.out.println("user not found!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -124,10 +128,15 @@ public class UserCtrl {
 
         }
 
+        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+
 
         if(currentPassword != null){
-            System.out.println("PASS != NULLLLLL");
-            if(currentPassword.equals(dbPassword)) {
+            System.out.println(currentPassword);
+            System.out.println(encoder.encode(currentPassword));
+            System.out.println(encoder.upgradeEncoding(dbPassword));
+            System.out.println(dbPassword);
+            if(enc.matches(currentPassword, dbPassword)) {
                 System.out.println("match !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             } else {
                 System.out.println("incorect pass !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -143,6 +152,7 @@ public class UserCtrl {
 
 
         String newPasswordEncoded = passwordEncoder.encode(newPassword);
+        System.out.println(newPassword);
 
         currentUser.setPassword(newPasswordEncoded);
 

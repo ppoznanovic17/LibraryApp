@@ -66,7 +66,7 @@ export class UpdateProfileComponent implements OnInit {
     }
 
 
-    this.userService.updatePass(this.loggedUser, this.pass1).subscribe(
+    this.userService.updatePass(this.loggedUser, this.newPassword, this.pass1).subscribe(
       res => {
         console.log(res)
         this.updatePassTrue = true
@@ -80,7 +80,7 @@ export class UpdateProfileComponent implements OnInit {
       error => {
         this.updatePassFalse = true
         this.updatePassTrue = false
-        this.updatePassMsg = "error"
+        this.updatePassMsg = 'Wrong password'
 
       }
 

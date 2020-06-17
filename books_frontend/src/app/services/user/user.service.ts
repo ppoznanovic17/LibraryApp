@@ -10,11 +10,11 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  updatePass(user: User, newPassword: String) {
+  updatePass(user: User, oldPassword: String, newPassword: String) {
 
     let userInfo = {
       "id" : user.id,
-      "currentPassword" : user.password,
+      "currentPassword" : oldPassword,
       "newPassword" : newPassword
     }
 

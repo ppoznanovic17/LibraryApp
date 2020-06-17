@@ -21,8 +21,9 @@
         <p style="margin-left: 10px; margin-bottom: 2px; font-size: 27px;">Filters: </p>
         <hr style="width: 90%">
         <div class="select">
-          <select name="slct" id="slct" (change)="selectPriceRange($event)">
+          <select name="slct" id="slct" class="check">
             <option selected disabled>Choose price range</option>
+            <option value="0">all</option>
             <option value="1">0-500 rsd</option>
             <option value="2">501-1000 rsd</option>
             <option value="3">1001-1500 rsd</option>
@@ -36,140 +37,185 @@
         <!-- type -->
         <div style="text-align: center; width: 100%"><p>Format:</p></div>
         <ul class="ks-cboxtags" style="text-align: center">
-          <li (change)="changeFormat()"><input type="checkbox" id="paperback" value="paperback" [(ngModel)]="paperback"><label for="paperback" style="margin-right: 5px">paperback</label>
+          <li><input class="check" type="checkbox" id="paperback" value="paperback" [(ngModel)]="paperback"><label for="paperback" style="margin-right: 5px">paperback</label>
           </li>
-          <li><input type="checkbox" id="hardcover" value="hardcover" [(ngModel)]="hardcover"><label for="hardcover">hardcover</label></li>
+          <li><input class="check" type="checkbox" id="hardcover" value="hardcover" [(ngModel)]="hardcover"><label for="hardcover">hardcover</label></li>
         </ul>
         <br>
         <hr style="width: 90%">
         <div style="text-align: center; width: 90%"><p>Category:</p></div>
         <ul class="ks-cboxtags" style="text-align: center; width: 100%">
-          <li><input class="check" type="checkbox" id="management" value="management"><label for="management"
+          <li><input class="check" type="checkbox" id="management" value="management" [(ngModel)]="management"><label for="management"
                                                                                              style="margin-right: 5px">management</label>
           </li>
-          <li><input class="check" type="checkbox" id="fiction" value="fiction"><label for="fiction">fiction</label>
+          <li><input [(ngModel)]="fiction"  class="check" type="checkbox" id="fiction" value="fiction"><label for="fiction">fiction</label>
           </li>
           <br>
-          <li><input class="check" type="checkbox" id="engineering" value="engineering"><label for="engineering"
+          <li><input class="check" [(ngModel)]="engineering" type="checkbox" id="engineering" value="engineering"><label for="engineering"
                                                                                                style="margin-right: 5px">engineering</label>
           </li>
-          <li><input class="check" type="checkbox" id="programming" value="programming"><label for="programming">programming</label>
+          <li><input [(ngModel)]="programming" class="check" type="checkbox" id="programming" value="programming"><label for="programming">programming</label>
           </li>
           <br>
-          <li><input class="check" type="checkbox" id="arts & literature" value="arts & literature"><label
-            for="arts & literature" style="margin-right: 5px">arts & literature</label></li>
+          <li><input [(ngModel)]="architecture" class="check" type="checkbox" id="arts & literature" value="architecture"><label
+            for="arts & literature" style="margin-right: 5px">architecture</label></li>
         </ul>
 
         <hr style="width: 90%">
         <!-- type -->
         <div style="text-align: center; width: 100%"><p>Language:</p></div>
         <ul class="ks-cboxtags" style="text-align: center">
-          <li><input type="checkbox" id="serbian" value="serbian"><label for="serbian"
+          <li><input [(ngModel)]="serbian" class="check" type="checkbox" id="serbian" value="serbian"><label for="serbian"
                                                                          style="margin-right: 5px">Serbian</label></li>
-          <li><input type="checkbox" id="english" value="english"><label for="english">English</label></li>
+          <li><input [(ngModel)]="english" class="check" type="checkbox" id="english" value="english"><label for="english">English</label></li>
         </ul>
         <br>
         <br>
       </div>
 
     </div>
-
     <div>
-      <div style="display: flex; margin-top: 0px">
-        <div style=" margin-top: 0px; flex-grow: 3">
-          <img src="../../../assets/image/wood.png" class="img-fluid"
-               style="position: absolute; margin-top: 90px; z-index: -2; width: 1150px"/>
-
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" name="searchByTitle" aria-label="Search"
-                 style="width: 75%; margin-right: 0px; margin-top: 25px;display: inline-block">
-          <button class="btn" style="background-color: #835C3B; color: white;margin: 5px; display: inline-block"
-                  type="submit">Search
-          </button>
-        </div>
-
-        <div class="child" style=" margin-top: 0px">
-          <img src="../../../assets/image/logo1.png" style="width: 60%"/>
-
-        </div>
-      </div>
-      <br>
-      <div class="bg-dark pagination">
-        <div class="pag" style="margin-left: 5px">
-          <span>1-24 od 29</span>
-        </div>
-        <div class="pag" style="text-align: center">
-          <p>< 1 2 3 ></p>
-        </div>
-        <div class="pag" style="text-align: right; margin-right: 5px">
-          cena opadajuce
-        </div>
-      </div>
 
 
-      <div *ngFor="let book of bookList">
-          <div class="card"style=" float: left; margin: 8px; width: 31%; height: 170px">
-            <a href="book/{{book.id}}" >
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="{{book.bookImage}}" class="card-img" alt="..." style="height: 170px">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{book.title}}</h5>
-                  <p class="card-text">{{book.author}}</p>
-                  <p class="card-text"><small class="text-muted" style="font-size: 15px">Price: {{book.ourPrice}}
-                    rsd</small></p>
-                </div>
+      <div>
+        <div style="display: flex; margin-top: 0px">
+          <div style=" margin-top: 0px; flex-grow: 3">
+            <img src="../../../assets/image/wood.png" class="img-fluid"
+                 style="position: absolute; margin-top: 90px; z-index: -2; width: 1150px"/>
+
+            <input [(ngModel)]="searchET" class="form-control mr-sm-2" type="text" placeholder="Search" name="searchByTitle" aria-label="Search"
+                   style="width: 75%; margin-right: 0px; margin-top: 25px;display: inline-block">
+            <button class="btn" style="background-color: #835C3B; color: white;margin: 5px; display: inline-block"
+                    (click)="searchByTitleOrTitle()">Search
+            </button>
+          </div>
+
+          <div class="child" style=" margin-top: 0px">
+            <img src="../../../assets/image/logo1.png" style="width: 60%"/>
+
+          </div>
+        </div>
+        <br>
+        <div class="bg-dark pagination">
+          <div class="pag" style="margin-left: 5px">
+            <span>{{limit*(off-1)+1}} - {{calcLast()}} of {{numOfBooks}} books</span>
+
+            <div>
+              Number of books to show:
+              <div class="select-b" style="display: inline">
+
+
+                <select  name="numOfBook" id="numOfBook" class="check" style="height: fit-content">
+                  <option selected disabled>Choose price range</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                  <option value="10">10</option>
+                  <option value="12" selected>12</option>
+                  <option value="24">24</option>
+
+                </select>
 
               </div>
             </div>
-            </a>
           </div>
+          <div *ngIf="!searchBool"   class="pag"  style="text-align: left">
+            <a  [className]="this.off == 1 ? 'invisible' : ''"  (click)="goLeft()" style="color: white; border: 2px solid #835C3B; padding: 3px 5px; margin: 0 18px">&larr;</a>
+
+            <div  style="text-align: center; display: inline; margin: 0 18px" *ngFor="let i of pagination">
+              <a (click)="goPage(i)" [className]="this.off == i ? 'selected-pag' : 'nista'"  style="color: white; border: 2px solid #835C3B; padding: 3px 6px">{{i}}</a>
+            </div>
+            <a  [className]="this.off == this.iteratorList.length ? 'invisible' : ''" (click)="goRight()" style="color: white; border: 2px solid #835C3B; padding: 3px 5px;margin: 0 18px">&rarr;</a>
+
+          </div>
+          <div class="pag" style="text-align: right; margin-right: 5px">
+            Sort by:
+            <select  name="sort" id="sort" class="check" style="height: fit-content">
+              <option value="1" selected>popularity</option>
+              <option value="2">price - asc</option>
+              <option value="3">price - desc</option>
+              <option value="4">page - asc</option>
+              <option value="5" >page - desc</option>
+              <option value="6">title - asc</option>
+              <option value="7">title - desc</option>
+
+            </select>
+          </div>
+        </div>
+        <div *ngIf="searchBool">
+          <h3>Search result for: {{searchET}}</h3>
+        </div>
+
+
+        <div *ngFor="let book of bookList">
+            <div class="card"style=" float: left; margin: 8px; width: 31%; height: 210px">
+              <a href="book/{{book.id}}" >
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <p *ngIf="haveDiscount(book)" style="position: absolute; right: 0; padding: 6px; background-color: red; color: white"> {{book.discount}}%</p>
+                  <img src="{{book.bookImage}}" class="card-img" alt="..." style="height: 170px">
+                  <div class="bg-category" style="display:inline; float:left;border: 1px solid white; border-radius: 25px; padding-left: 10px; padding-right: 10px; width: 100%; text-align: center">
+                    <p class="card-text" style="font-size: 11px; color: white" [style.background-color]="getBackgroundColor(book.category)">{{book.category}}</p>
+                  </div>
+                  <div class="bg-category" style="display:inline; float:left;border: 1px solid white; border-radius: 25px; padding-left: 4px; padding-right: 4px; width: 100%; text-align: center; margin: 0">
+                    <p class="card-text" style="font-size: 11px;">{{book.format}}</p>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{cropTitle(book.title)}}</h5>
+                    <p class="card-text">{{book.author}}</p>
+
+                    <p *ngIf="!haveDiscount(book)" class="card-text" style="float: right"><small class="text-muted" style="font-size: 21px">  Price: {{book.ourPrice}}
+                      rsd</small></p>
+
+                    <p *ngIf="haveDiscount(book)" class="card-text" style="float: right"><small class="text-muted" style="font-size: 21px">  Price: <del>{{book.ourPrice}}
+                      rsd </del></small></p>
+                    <br>
+                    <br>
+                    <p *ngIf="haveDiscount(book)"  style="float: right; color: red !important;"><small class="text-muted" style="font-size: 21px; color: red !important;">  {{book.newPrice}}
+                      rsd</small></p>
+
+                  </div>
+
+                </div>
+              </div>
+              </a>
+            </div>
+        </div>
+        <br class="clearBoth" />
+
+
+
+        <br>
       </div>
-      <br class="clearBoth" /><!-- you may or may not need this -->
-     <!-- <div class="card-deck" *ngFor="let book of bookList">
-        <div class="card" style="display: flex; flex-direction: row; height: 200px">
-          <div style="flex-grow: 1">
-            <img src="{{book.bookImage}}" class="card-img-top" alt="..." style="height: 200px">
+
+
+
+      <div *ngIf="off!=iteratorList.length && !searchBool" class="bg-dark" style="text-align: center">
+
+        <div class="pag "  style="text-align: center">
+          <a *ngIf="off!=1"  (click)="goLeft()" style="color: white; border: 2px solid #835C3B; padding: 3px 5px; margin: 0 18px">&larr;</a>
+
+          <div  style="text-align: center; display: inline; margin: 0 18px" *ngFor="let i of pagination">
+            <a (click)="goPage(i)" [className]="this.off == i ? 'selected-pag' : 'nista'"  style="color: white; border: 2px solid #835C3B; padding: 3px 6px">{{i}}</a>
           </div>
+          <a  *ngIf="off!=iteratorList.length" (click)="goRight()" style="color: white; border: 2px solid #835C3B; padding: 3px 5px;margin: 0 18px">&rarr;</a>
 
-          <div class="card-body" style="flex-grow: 8">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
         </div>
 
-      </div>-->
-
-
-
-      <div class="bg-dark pagination">
-        <div class="pag" style="margin-left: 5px">
-          <span>1-24 od 29</span>
-        </div>
-        <div class="pag" style="text-align: center">
-          <p>< 1 2 3 ></p>
-        </div>
-        <div class="pag" style="text-align: right; margin-right: 5px">
-          cena opadajuce
-        </div>
       </div>
-
-      <br>
-    </div>
 
 
 
 
 
     <div>
-      side
+
     </div>
 
 
   </div>
-
+  </div>
 </div>
 
 

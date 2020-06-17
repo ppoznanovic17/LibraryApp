@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div style="margin-top: 30px; min-height: 85vh" class="table-responsive container" >
+  <table *ngIf="cart.length>0" id="bookListTable" class="table bordered highlight">
+    <thead>
+    <tr style="background-color: #835C3B">
+      <th></th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Our Price</th>
+      <th>Quantity</th>
+      <th>Full Price</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cart of cart" style="height: 80px">
+      <td ><img src="{{cart.book.bookImage}}" alt="book picture" style="height: 120px"></td>
+      <td >{{cart.book.title }}</td>
+      <td>{{cart.book.author}}</td>
+      <td>{{cart.book.category}}</td>
+      <td>{{cart.book.ourPrice}} RSD</td>
+      <td>{{cart.quantity}}</td>
+      <td>{{cart.quantity * cart.book.ourPrice}} RSD</td>
+      <td style="text-align: center">
+        <button *ngIf="cart.quantity" mat-button (click)="deleteOne(cart.book.id)"  value="deleteOne" class="mat-warn" ><span class="fa fa-times"></span> Delete one </button>
+        <button *ngIf="cart.quantity>1" mat-button (click)="deleteAll(cart.book.id)"  value="deleteAll" class="mat-warn" ><span class="fa fa-times"></span> Delete all {{cart.quantity}} </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h1 *ngIf="cart.length==0" style="color: #835C3B"> Cart is empty. </h1>
+  <div *ngIf="cart.length>0" style="width: 100%; display: flex">
+    <div style="flex-grow: 1">
+      <h2>Total price: {{price}} RSD</h2>
+    </div>
+    <div style="flex-grow: 1">
+      <button (click)="orderBook()" mat-flat-button style="background-color: #835C3B; width: 100%">Buy</button>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>
+
+
+

@@ -3,6 +3,7 @@ package com.peca.books.config;
 import com.peca.books.config.jwt.JwtAuthenticationEntryPoint;
 import com.peca.books.config.jwt.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,7 +26,7 @@ import java.util.Arrays;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ApplicationContextAware {
 
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -60,9 +61,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable().cors().and()
                 // dont authenticate this particular request
-                .authorizeRequests().antMatchers("/login", "/reg","/book/all", "/book/{id}"
+                .authorizeRequests().antMatchers( "/cart/getCart" ,"/login", "/reg","/book/all", "/book/{id}"
                                                 ,"/book/price/{min}&{max}&{cat}&{type}&{lang}",
-                                                "/book/sort/{off}&{limit}&{sort}&{order}").permitAll().
+                                                "/book/sort&filter", "/book/size", "/rate/user/{id}",
+                                                "/rate/book/{id}", "/rate/delete/{id}",
+                                                "/rate/myrate/{bookId}&{userId}").permitAll().
                 // all other requests need to be authenticated
                         anyRequest().authenticated().and().
                 // make sure we use stateless session; session won't be used to
@@ -73,6 +76,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Add a filter to validate the tokens with every request
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
+
 
     /*@Bean
     CorsConfigurationSource corsConfigurationSource() {

@@ -1,4 +1,4 @@
-package com.peca.books.model.dto;
+package com.peca.books.model.dto.user;
 
 import com.peca.books.model.User;
 import lombok.AllArgsConstructor;

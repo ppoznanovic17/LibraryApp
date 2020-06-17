@@ -11,11 +11,13 @@
         <th>Title</th>
         <th>Author</th>
         <th>Category</th>
-        <th>List Price</th>
         <th>Our Price</th>
         <th>Picture</th>
         <th>NumInStock</th>
         <th>Sold</th>
+        <th></th>
+        <th></th>
+        <th>New price</th>
       </tr>
       </thead>
       <tbody>
@@ -27,8 +29,7 @@
           <td><a style="cursor: pointer" (click)="onSelect(book)">{{book.title}}</a></td>
           <td >{{book.author }}</td>
           <td>{{book.category}}</td>
-          <td>{{book.listPrice}}</td>
-          <td>{{book.ourPrice}}</td>
+          <td>{{book.ourPrice}} RSD</td>
           <td><img src="{{book.bookImage}}" alt="book image" style="height: 120px"></td>
           <td>{{book.inStockNumber}}</td>
           <td>{{book.numberOfSold}}</td>
@@ -40,10 +41,19 @@
               <button mat-button class="mat-primary" (click)="delete(book)">Yes</button>
               <button mat-button class="mat-primary" (click)="closeDialog(book)">No</button>
             </div>
-            <div [attr.id]="book.id">
-              <button mat-button (click)="openDialog(book)" value="delete" class="mat-warn" ><span class="fa fa-times"></span> Delete </button>
-            </div>
 
+              <button mat-button (click)="openDialog(book)" value="delete" class="mat-warn" ><span class="fa fa-times"></span> Delete </button>
+
+          </td>
+          <td>
+            <div>
+              <input type="number" min="1" max="80" [(ngModel)]="book.discount">
+              <button mat-button (click)="setDiscount(book.id, book.discount)" value="delete" class="mat-primary" >Set discount </button>
+            </div>
+          </td>
+          <td>
+            <p *ngIf="book.discount>0">{{book.newPrice}} RSD</p>
+            <p *ngIf="book.discount==0"> / </p>
           </td>
         </tr>
 

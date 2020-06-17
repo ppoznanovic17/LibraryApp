@@ -4,6 +4,7 @@ import com.peca.books.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookDao extends JpaRepository<Book, Long> {
 
@@ -33,6 +34,7 @@ public interface BookDao extends JpaRepository<Book, Long> {
     //sa svim filterima
     List<Book> findAllByOurPriceIsBetweenAndCategoryAndFormatAndLanguageOrderByOurPriceDesc(double ourPrice, double ourPrice2, String category, String format, String language);
 
+    Optional<Book> findById(long id);
 
 
 }

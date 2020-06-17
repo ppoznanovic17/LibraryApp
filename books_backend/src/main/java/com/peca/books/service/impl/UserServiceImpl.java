@@ -2,8 +2,8 @@ package com.peca.books.service.impl;
 
 import com.peca.books.dao.UserDao;
 import com.peca.books.model.User;
-import com.peca.books.model.dto.UserReqDto;
-import com.peca.books.model.dto.UserResDto;
+import com.peca.books.model.dto.user.UserReqDto;
+import com.peca.books.model.dto.user.UserResDto;
 import com.peca.books.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

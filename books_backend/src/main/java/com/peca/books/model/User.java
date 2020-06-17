@@ -1,16 +1,17 @@
 package com.peca.books.model;
 
-import com.peca.books.model.dto.UserReqDto;
+import com.peca.books.model.dto.user.UserReqDto;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Entity(name = "user")
 public class User {
 
     @Id
@@ -32,5 +33,9 @@ public class User {
         password = req.getPassword();
         email = req.getEmail();
     }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable( name = "rating")
+    private List<Rating> ratings;
 
 }

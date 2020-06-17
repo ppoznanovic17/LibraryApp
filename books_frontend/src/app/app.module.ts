@@ -33,7 +33,10 @@ import { BookComponent } from './components/all/book/book.component';
 import { BooklistAllComponent } from './components/all/booklist-all/booklist-all.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/all/footer/footer.component';
-
+import { CartComponent } from './components/all/cart/cart.component';
+import { ReviewsComponent } from './components/user/reviews/reviews.component';
+import { AboutComponent} from "./components/all/about/about.component";
+import { FaqComponent } from './components/all/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,11 @@ import { FooterComponent } from './components/all/footer/footer.component';
     BookComponent,
     BooklistAllComponent,
     FooterComponent,
+    CartComponent,
+    ReviewsComponent,
+    AboutComponent,
+    FaqComponent
+
 
   ],
   imports: [

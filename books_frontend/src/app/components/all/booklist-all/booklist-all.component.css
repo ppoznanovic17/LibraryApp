@@ -7,6 +7,9 @@
  flex-grow: 1;
 }
 
+.invisible{
+
+}
 
 h1 {
   margin: 0 0 0.25em;
@@ -38,6 +41,16 @@ select::-ms-expand {
   overflow: hidden;
   border-radius: .25em;
 }
+
+.select-b {
+  position: relative;
+  width: 15px;
+  height: 1.5em;
+  background: #835C3B;
+  overflow: hidden;
+  border-radius: .25em;
+}
+
 select {
   flex: 1;
   padding: 0 .5em;
@@ -128,14 +141,27 @@ ul.ks-cboxtags li input[type="checkbox"] {
 .pagination{
   display: flex;
   color: white;
-  width: 1148px;
+  width: 100%;
   margin-left: 5px;
+
 }
+
+
 
 .pag{
   flex-grow: 1;
   padding: 5px;
 }
+
+.pag a:hover {
+  background-color: #835C3B;
+  cursor: pointer;
+}
+
+.selected-pag {
+  background-color: #835C3B;
+}
+
 
 a{
   color: black;

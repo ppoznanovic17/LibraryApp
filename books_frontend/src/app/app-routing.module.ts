@@ -17,16 +17,23 @@ import {MyprofileComponent} from "./components/user/myprofile/myprofile.componen
 import {UpdateProfileComponent} from "./components/user/update-profile/update-profile.component";
 import {BookComponent} from "./components/all/book/book.component";
 import {BooklistAllComponent} from "./components/all/booklist-all/booklist-all.component";
+import {CartComponent} from "./components/all/cart/cart.component";
+import {ReviewsComponent} from "./components/user/reviews/reviews.component";
+import {AboutComponent} from "./components/all/about/about.component";
+import {FaqComponent} from "./components/all/faq/faq.component";
 
 
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'faq', component: FaqComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'forgetpass', component: ForgetpassComponent},
   { path: 'book/:id', component: BookComponent},
   { path: 'booklist/:name', component: BooklistAllComponent},
+  { path: 'cart', component: CartComponent},
   { path: 'admin/newbook', component: AddNewBookComponent, canActivate: [RouteGuardAdminService]},
   { path: 'admin/welcome', component: WelcomeComponent, canActivate: [RouteGuardAdminService]},
   { path: 'admin/booklist', component: BookListComponent, canActivate: [RouteGuardAdminService]},
@@ -34,6 +41,7 @@ const routes: Routes = [
   { path: 'admin/book/edit/:id', component: EditBookComponent, canActivate: [RouteGuardAdminService]},
   { path: 'user/profile', component: MyprofileComponent, canActivate: [RouteGuardService]},
   { path: 'user/update', component: UpdateProfileComponent, canActivate: [RouteGuardService]},
+  { path: 'user/profile/reviews', component: ReviewsComponent, canActivate: [RouteGuardService]},
 
 
   {path: '**', component:ErrorComponent}

@@ -45,7 +45,7 @@
         <p *ngIf="book.inStockNumber != 0" style="color: green ">Available</p>
         <label for="tentacles" style="margin-right: 10px">Quantity: </label>
 
-        <input value="1" type="number" id="tentacles" name="tentacles"
+        <input [(ngModel)]="quantity" value="1" type="number" id="tentacles" name="tentacles"
                min="1" max="{{book.inStockNumber}}">
         <br>
         <a class="btn" style="background-color: #835C3B; color: white;" (click)="addToChart(book)">ADD TO CART</a>
@@ -62,4 +62,41 @@
     </mat-grid-tile>-->
   </mat-grid-list>
   <div><p><strong>Description: </strong> <br>{{book.description}}</p></div>
+
+  <hr>
+  <div *ngIf="loggedIn&&!isAdmin&&!userRatedBook" id="write_review">
+    <h5>Write a review</h5>
+    <div >
+      <div>
+          Rate: <input [(ngModel)]="rating" value="3" type="number" id="rating" name="rating"
+                       min="1" max="5">
+      </div>
+      <div>
+        <br>
+        <textarea [(ngModel)]="review" placeholder="Write review..." name="" id="" cols="150" rows="5"></textarea>
+      </div>
+      <a (click)="writeReview()" class="btn" style="background-color: #835C3B; color: white; margin-right: 20px" >Submit</a>
+      <span *ngIf="postSuccess && succPostMsg" style="color: green">{{succPostMsg}}</span>
+      <span *ngIf="!postSuccess && errorPostMsg" style="color: red">{{errorPostMsg}}</span>
+    </div>
+  </div>
+  <hr *ngIf="loggedIn&&!isAdmin&&!userRatedBook">
+
+  <div>
+    <h4>User reviews</h4>
+    <div *ngFor="let rating of ratings" style="border: 1px solid #888888; margin: 20px">
+      <div>
+        <p style="float: left; margin-left: 20px;"><b>{{rating.user.username}} {{isUserReview(rating.user.id)}}</b></p>
+        <p *ngIf="rating.user.firstName&&rating.user.lastName" style="float: left; margin-left: 20px;">(First name: {{rating.user.firstName}} | Last name: {{rating.user.lastName}})</p>
+        <p [style.background-color]="setBgColor(rating.rating)" style="float: right; margin-right: 20px; margin-top: 10px; padding: 5px; color: white">{{rating.rating}}</p>
+        <br>
+        <br>
+        <p style="margin-left: 20px">{{rating.content}}</p>
+        <button (click)="deleteRating(rating.id)" *ngIf="isUserReview(rating.user.id)" mat-button value="delete" class="mat-warn" ><span class="fa fa-times"></span> Delete review </button>
+
+      </div>
+
+    </div>
+  </div>
 </div>
+<app-footer></app-footer>

@@ -13,6 +13,8 @@ export class Book {
   public shippingWeight: number
   public listPrice: number
   public ourPrice: number
+  public newPrice: number
+  public discount: number
   public active: boolean
   public description: String
   public inStockNumber: number
